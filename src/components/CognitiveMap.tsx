@@ -66,18 +66,8 @@ const getNodePosition = (nodeId: string) => {
 export const CognitiveMap: React.FC = () => {
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
   const [selectedNode, setSelectedNode] = useState<string | null>(null);
-  const [nodePositions, setNodePositions] = useState<Record<string, { x: number; y: number }>>({});
 
   const selectedNodeData = nodes.find((n) => n.id === selectedNode);
-
-  // 初始化节点位置，确保每个节点都有正确的位置
-  React.useEffect(() => {
-    const initialPositions: Record<string, { x: number; y: number }> = {};
-    nodes.forEach(node => {
-      initialPositions[node.id] = { ...node.position };
-    });
-    setNodePositions(initialPositions);
-  }, []);
 
   return (
     <section className={styles.container}>
@@ -103,7 +93,7 @@ export const CognitiveMap: React.FC = () => {
 
           {/* Nodes */}
           {nodes.map((node) => {
-            const position = nodePositions[node.id] || node.position;
+            const position = node.position;
             return (
               <g
                 key={node.id}
