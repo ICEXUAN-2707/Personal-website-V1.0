@@ -59,7 +59,7 @@ const connections = [
 
 // 获取节点位置的辅助函数
 const getNodePosition = (nodeId: string) => {
-  const node = nodes.find(n => n.id === nodeId);
+  const node = nodes.find((n) => n.id === nodeId);
   return node ? node.position : { x: 0, y: 0 };
 };
 
@@ -103,25 +103,25 @@ export const CognitiveMap: React.FC = () => {
                 onMouseLeave={() => setHoveredNode(null)}
                 onClick={() => setSelectedNode(node.id)}
               >
-                <circle 
-                  r="6" 
-                  className={`${styles.nodeCircle} ${hoveredNode === node.id ? styles.hoveredCircle : ''}`} 
+                <circle
+                  r="6"
+                  className={`${styles.nodeCircle} ${hoveredNode === node.id ? styles.hoveredCircle : ''}`}
                 />
-                <text 
-                  y="0" 
+                <text
+                  y="0"
                   className={`${styles.nodeLabel} ${hoveredNode === node.id ? styles.hoveredLabel : ''}`}
                 >
                   {node.icon}
                 </text>
-                <text 
-                  y="10" 
+                <text
+                  y="10"
                   className={`${styles.nodeText} ${hoveredNode === node.id ? styles.hoveredText : ''}`}
                 >
                   {node.label}
                 </text>
               </g>
             );
-          })}      
+          })}
         </svg>
 
         {selectedNodeData && (

@@ -46,9 +46,7 @@ const musicSections: MusicSection[] = [
     id: 'classical',
     name: 'JPop',
     color: '#95E1D3',
-    lyrics: [
-      '《Pretender》',
-    ],
+    lyrics: ['《Pretender》'],
   },
 ];
 
@@ -70,7 +68,7 @@ export const SoundArchive: React.FC = () => {
     if (section && section.lyrics && section.lyrics.length > 0) {
       const randomLyric =
         section.lyrics[Math.floor(Math.random() * section.lyrics.length)];
-      
+
       if (randomLyric) {
         setCurrentLyric('');
 

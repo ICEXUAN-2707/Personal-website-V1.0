@@ -39,7 +39,7 @@ export const Connection: React.FC<ConnectionProps> = ({ pathChoice }) => {
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     } catch (err) {
-      console.error('复制失败:', err);
+      // 复制失败，静默处理
     }
   };
 
@@ -172,15 +172,17 @@ export const Connection: React.FC<ConnectionProps> = ({ pathChoice }) => {
 
       {/* 匿名提问箱 */}
       <div className={styles.questionBox}>
-        <a 
-          href="https://qntwx.cn/M6HV59" 
-          target="_blank" 
+        <a
+          href="https://qntwx.cn/M6HV59"
+          target="_blank"
           rel="noopener noreferrer"
           className={styles.questionLink}
         >
           📮 匿名提问箱
         </a>
-        <p className={styles.questionDescription}>人与人之间的联结也许就从一个问题开始</p>
+        <p className={styles.questionDescription}>
+          人与人之间的联结也许就从一个问题开始
+        </p>
       </div>
 
       {/* 结束语 */}
