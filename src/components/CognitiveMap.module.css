@@ -1,0 +1,247 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.mapContainer {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(0.98);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.connection {
+  stroke-width: 0.2;
+  opacity: 0.4;
+  animation: flow 4s linear infinite;
+}
+
+.connectionPrimary {
+  stroke: var(--accent-1);
+  stroke-dasharray: 2, 3;
+}
+
+.connectionSecondary {
+  stroke: var(--accent-2);
+  stroke-dasharray: 1, 4;
+  animation-delay: 1s;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -8;
+  }
+}
+
+.connectionGlow {
+  filter: drop-shadow(0 0 2px var(--accent-1));
+}
+
+.node {
+  cursor: pointer;
+  transition: all 0.4s var(--easing-smooth);
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
+}
+
+.nodeCircle {
+  fill: var(--accent-1);
+  stroke: var(--accent-2);
+  stroke-width: 0.8;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+  transition: all 0.3s var(--easing-smooth);
+}
+
+.nodeLabel {
+  font-size: 8px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  fill: var(--text-primary);
+  font-weight: bold;
+  transition: all 0.3s var(--easing-smooth);
+}
+
+.nodeText {
+  font-size: 4px;
+  text-anchor: middle;
+  fill: var(--text-primary);
+  font-weight: 500;
+  transition: all 0.3s var(--easing-smooth);
+}
+
+/* Hover effects */
+.hoveredCircle {
+  r: 7;
+  filter: drop-shadow(0 0 4px var(--accent-1));
+  stroke-width: 1;
+}
+
+.hoveredLabel {
+  font-size: 8px;
+  filter: drop-shadow(0 0 3px var(--accent-1));
+}
+
+.hoveredText {
+  font-size: 4.5px;
+  fill: var(--accent-1);
+  filter: drop-shadow(0 0 2px var(--accent-1));
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    r: 6;
+    stroke-opacity: 0.7;
+  }
+  50% {
+    r: 7;
+    stroke-opacity: 1;
+  }
+}
+
+.nodeLabel {
+  font-size: 7px;
+  text-anchor: middle;
+  fill: var(--text-primary);
+  font-weight: bold;
+  transition: all 0.3s var(--easing-smooth);
+}
+
+.nodeText {
+  font-size: 4px;
+  text-anchor: middle;
+  fill: var(--text-primary);
+  font-weight: 500;
+  transition: all 0.3s var(--easing-smooth);
+}
+
+.node.hovered .nodeText {
+  font-size: 4.5px;
+  fill: var(--accent-1);
+}
+
+.detailCard {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-secondary);
+  padding: 2.5rem;
+  border-radius: 16px;
+  max-width: 320px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15), 0 0 15px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideIn 0.4s var(--easing-smooth);
+  backdrop-filter: blur(10px);
+  z-index: 20;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(30px) scale(0.95);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(255, 255, 255, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0) scale(1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15), 0 0 15px rgba(255, 255, 255, 0.1);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.cardIcon {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  animation: bounce 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.cardTitle {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.cardDescription {
+  font-size: 1.1rem;
+  color: var(--accent-2);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.cardContent {
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.8;
+  text-align: justify;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .mapContainer {
+    height: 400px;
+  }
+
+  .detailCard {
+    position: fixed;
+    right: 1rem;
+    left: 1rem;
+    bottom: 1rem;
+    top: auto;
+    transform: none;
+    max-width: none;
+  }
+}

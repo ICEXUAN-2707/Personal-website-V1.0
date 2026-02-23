@@ -1,0 +1,47 @@
+/* CSS Variables for Theme System */
+:root {
+  /* Morning Theme (Default) */
+  --bg-primary: #f7f5f0;
+  --bg-secondary: #eae6dc;
+  --accent-1: #8b6f47;
+  --accent-2: #a4b494;
+  --accent-3: #d4a574;
+  --text-primary: #3d3d3d;
+  --text-secondary: #6b6b6b;
+
+  /* Animation Durations */
+  --duration-fast: 0.3s;
+  --duration-normal: 0.6s;
+  --duration-slow: 1.2s;
+  --duration-theme: 1.5s;
+
+  /* Easing Functions */
+  --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --easing-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+  /* Breakpoints (for JS usage) */
+  --breakpoint-mobile: 768px;
+  --breakpoint-tablet: 1024px;
+  --breakpoint-desktop: 1440px;
+  --breakpoint-wide: 1920px;
+}
+
+/* Night Theme */
+[data-theme='night'] {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --accent-1: #e94560;
+  --accent-2: #ffd700;
+  --accent-3: #4ecdc4;
+  --text-primary: #f7f5f0;
+  --text-secondary: #b8b8d1;
+}
+
+/* Smooth theme transitions */
+* {
+  transition:
+    background-color var(--duration-theme) var(--easing-smooth),
+    color var(--duration-theme) var(--easing-smooth),
+    border-color var(--duration-theme) var(--easing-smooth);
+}

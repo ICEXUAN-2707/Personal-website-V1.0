@@ -1,0 +1,139 @@
+.container {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+/* 五线谱音符 */
+.musicStaff {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.staffSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.notesContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.note {
+  position: absolute;
+  left: -50px;
+  animation: flowNote linear infinite;
+  color: var(--text-primary);
+  font-weight: bold;
+}
+
+@keyframes flowNote {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(100vw + 50px));
+  }
+}
+
+.caption {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+/* 咖啡完成瞬间 */
+.coffeeMoment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem;
+  background: var(--bg-secondary);
+  border-radius: 20px;
+}
+
+.momentTitle {
+  font-size: 2rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.coffeeContainer {
+  width: 300px;
+  height: 300px;
+}
+
+.coffeeSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.lastDrop {
+  animation: dropFall 1s ease-in forwards;
+}
+
+@keyframes dropFall {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.ripple {
+  animation: rippleExpand 2s ease-out infinite;
+  transform-origin: center;
+}
+
+@keyframes rippleExpand {
+  0% {
+    r: 5;
+    opacity: 1;
+  }
+  100% {
+    r: 60;
+    opacity: 0;
+  }
+}
+
+.steam {
+  animation: steamRise 3s ease-out infinite;
+}
+
+@keyframes steamRise {
+  0% {
+    opacity: 0.5;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(1.2);
+  }
+}
